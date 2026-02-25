@@ -1,69 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Static Site Practice</title>
+    <title>Static Site</title>
     <style>
-        body {
-            font-family: sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f9f9f9;
-        }
-
-        /* استایل اولیه متن */
-        #message {
-            padding: 20px;
-            margin-bottom: 20px;
-            font-size: 1.2rem;
-            transition: all 0.3s ease; /* برای نرم شدن تغییرات */
-        }
-
-        /* استایل دکمه */
-        #myButton {
-            padding: 10px 25px;
-            font-size: 1rem;
-            cursor: pointer;
-            background-color: #28a745;
-            color: white;
-            border: none;
-            border-radius: 5px;
-        }
-
-        /* این استایلی است که بعد از کلیک با جاوااسکریپت اضافه می‌شود */
-        .changed-style {
-            border: 3px solid #007bff; /* کادر دور متن */
-            border-radius: 10px;
-            color: #007bff;
-            background-color: #e7f3ff;
+     
+        .highlight {
+            color: blue; 
+            border: 2px solid red; 
+            padding: 10px;
+            display: inline-block;
         }
     </style>
 </head>
 <body>
 
-    <p id="message">Hello! I am unchanged.</p>
+    <h1 id="text-to-change">Hello! I am unchanged.</h1>
     
-    <button id="myButton">Click me!</button>
+    <button onclick="changeEverything()">Click me!</button>
 
     <script>
-        const btn = document.getElementById('myButton');
-        const msg = document.getElementById('message');
-
-        btn.addEventListener('click', () => {
-            // ۱. تغییر متن
-            msg.innerHTML = "You clicked! I have been changed by JavaScript!";
+        function changeEverything() {
+            var element = document.getElementById("text-to-change");
             
-            // ۲. اضافه کردن کادر و تغییر رنگ (از طریق کلاس CSS)
-            msg.classList.add('changed-style');
+            element.innerHTML = "You clicked! I have been changed by JavaScript!";
             
-            // ۳. تغییر متن خود دکمه (اختیاری)
-            btn.textContent = "Done!";
-            btn.style.backgroundColor = "#6c757d";
-        });
+            element.className = "highlight";
+        }
     </script>
 
 </body>
