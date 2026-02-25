@@ -12,7 +12,7 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            transition: background-color 0.5s ease; /* برای نرم عوض شدن رنگ */
+            transition: background-color 0.5s ease; 
         }
         .card {
             background: white;
@@ -46,7 +46,6 @@
         }
         .btn:hover { background-color: #f9f9f9; }
         
-        /* دکمه جادویی تغییر رنگ */
         #colorBtn {
             margin-top: 15px;
             background-color: #333;
@@ -74,12 +73,10 @@
     </div>
 
     <script>
-        // این دقیقاً همون منطقی هست که توی سایت aihejirika هست
         const btn = document.getElementById('colorBtn');
         const body = document.getElementById('body-bg');
 
         btn.addEventListener('click', () => {
-            // رنگ رو به یک رنگ تصادفی یا یک رنگ خاص عوض می‌کنه
             const randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
             body.style.backgroundColor = randomColor;
         });
