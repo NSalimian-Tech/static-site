@@ -1,60 +1,64 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Najme's First Static Site</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Static Site</title>
     <style>
-     
+        /* این استایل ساده برای وسط‌چین کردن و ظاهر دکمه است */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f7f6;
-            color: #333;
-            line-height: 1.6;
+            font-family: Arial, sans-serif;
             display: flex;
+            flex-direction: column;
+            align-items: center;
             justify-content: center;
-            padding: 40px;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
         }
-        .container {
-            background: white;
-            max-width: 600px;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            text-align: center;
+
+        h1 {
+            color: #333;
         }
-        h1 { color: #2c3e50; }
-        .profile-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            border: 5px solid #3498db;
-            margin-bottom: 20px;
+
+        p {
+            color: #666;
+            font-size: 1.2rem;
         }
-        .links { margin-top: 30px; }
-        .btn {
-            display: inline-block;
-            background: #3498db;
-            color: white;
+
+        #myButton {
             padding: 10px 20px;
-            text-decoration: none;
+            font-size: 1rem;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
             border-radius: 5px;
-            transition: background 0.3s;
+            transition: background-color 0.3s;
         }
-        .btn:hover { background: #2980b9; }
+
+        #myButton:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <img src="https://via.placeholder.com/150" alt="Profile Picture" class="profile-img">
-        
-        <h1>Welcome to My Static Site</h1>
-        <p>Hi! I'm <strong>Najme</strong>, an IT Engineer and a student in y44k0v's web development class.</p>
-        
-        <p>This is my first practice building a structured webpage using HTML and CSS internal styling.</p>
 
-        <div class="links">
-            <p>Check out my other projects:</p>
-            <a href="https://nsalimian-tech.github.io/space.html/index.html" class="btn">🚀 Space Mission Project</a>
-        </div>
-    </div>
+    <h1>Hello!</h1>
+    <p id="text">I am Najme, and this is my static site.</p>
+    
+    <button id="myButton">Click me!</button>
+
+    <script>
+        // این کد کوچک باعث می‌شود وقتی روی دکمه کلیک می‌کنی، رنگ متن عوض شود
+        const button = document.getElementById('myButton');
+        const text = document.getElementById('text');
+
+        button.addEventListener('click', () => {
+            text.style.color = 'red';
+            text.innerHTML = 'You clicked the button! 🎉';
+        });
+    </script>
+
 </body>
 </html>
