@@ -2,84 +2,69 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Najme's Static Site</title>
+    <title>Static Site Practice</title>
     <style>
         body {
-            background-color: #f4f4f4;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            transition: background-color 0.5s ease; 
-        }
-        .card {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            text-align: center;
-            width: 350px;
-        }
-        .profile-img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            border: 3px solid #eee;
-        }
-        h1 { margin: 10px 0; font-family: sans-serif; }
-        p { color: #777; margin-bottom: 20px; }
-        .button-container {
+            font-family: sans-serif;
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f9f9f9;
         }
-        .btn {
-            text-decoration: none;
-            color: #333;
-            border: 1px solid #ddd;
-            padding: 10px;
-            border-radius: 5px;
-            font-weight: bold;
-            display: block;
+
+        /* استایل اولیه متن */
+        #message {
+            padding: 20px;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            transition: all 0.3s ease; /* برای نرم شدن تغییرات */
         }
-        .btn:hover { background-color: #f9f9f9; }
-        
-        #colorBtn {
-            margin-top: 15px;
-            background-color: #333;
+
+        /* استایل دکمه */
+        #myButton {
+            padding: 10px 25px;
+            font-size: 1rem;
+            cursor: pointer;
+            background-color: #28a745;
             color: white;
             border: none;
-            padding: 10px;
-            cursor: pointer;
             border-radius: 5px;
-            width: 100%;
+        }
+
+        /* این استایلی است که بعد از کلیک با جاوااسکریپت اضافه می‌شود */
+        .changed-style {
+            border: 3px solid #007bff; /* کادر دور متن */
+            border-radius: 10px;
+            color: #007bff;
+            background-color: #e7f3ff;
         }
     </style>
 </head>
-<body id="body-bg">
+<body>
 
-    <div class="card">
-        <img src="https://via.placeholder.com/150" alt="Najme" class="profile-img">
-        <h1>Najme Salimian</h1>
-        <p>IT Engineer | ComIT Student</p>
-
-        <div class="button-container">
-            <a href="https://github.com/NSalimian-Tech" class="btn">GitHub</a>
-            <a href="https://www.linkedin.com/in/seyede-najme-salimian-a35a241a3/" class="btn">LinkedIn</a>
-            <button id="colorBtn">Change Theme Color</button>
-        </div>
-    </div>
+    <p id="message">Hello! I am unchanged.</p>
+    
+    <button id="myButton">Click me!</button>
 
     <script>
-        const btn = document.getElementById('colorBtn');
-        const body = document.getElementById('body-bg');
+        const btn = document.getElementById('myButton');
+        const msg = document.getElementById('message');
 
         btn.addEventListener('click', () => {
-            const randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
-            body.style.backgroundColor = randomColor;
+            // ۱. تغییر متن
+            msg.innerHTML = "You clicked! I have been changed by JavaScript!";
+            
+            // ۲. اضافه کردن کادر و تغییر رنگ (از طریق کلاس CSS)
+            msg.classList.add('changed-style');
+            
+            // ۳. تغییر متن خود دکمه (اختیاری)
+            btn.textContent = "Done!";
+            btn.style.backgroundColor = "#6c757d";
         });
     </script>
+
 </body>
 </html>
